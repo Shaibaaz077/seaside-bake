@@ -1,5 +1,15 @@
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Instagram,
+  Facebook,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import { Button } from "./ui/button";
+import seasidelogo from "../assets/seaside.jpg";
 
 export function Footer() {
   const quickLinks = [
@@ -34,16 +44,18 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="size-8 bg-orange-500 rounded-full flex items-center justify-center">
-                <span>🧁</span>
+              <div className="size-12 rounded-full flex items-center justify-center">
+                <img src={seasidelogo} alt="SeaSide Live Bake Studio" />
               </div>
               <div>
                 <h3 className="font-bold">SeaSide Live Bake Studio</h3>
-                <p className="text-sm text-gray-400">Fresh • Live • Delicious</p>
+                <p className="text-sm text-gray-400">
+                  Fresh • Live • Delicious
+                </p>
               </div>
             </div>
             <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-              Experience the magic of live baking at Cuddalore's premier bakery. 
+              Experience the magic of live baking at Cuddalore's premier bakery.
               Fresh products, premium ingredients, and unforgettable taste.
             </p>
             <div className="flex space-x-3">
@@ -99,25 +111,29 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-gray-400">
-                  123 Beach Road<br />
+                  123 Beach Road
+                  <br />
                   Cuddalore, Tamil Nadu 607001
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Phone className="size-4 text-orange-500 flex-shrink-0" />
                 <span className="text-sm text-gray-400">+91 98765 43210</span>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Mail className="size-4 text-orange-500 flex-shrink-0" />
-                <span className="text-sm text-gray-400">info@seasidebake.com</span>
+                <span className="text-sm text-gray-400">
+                  info@seasidebake.com
+                </span>
               </div>
-              
+
               <div className="flex items-start gap-3">
                 <Clock className="size-4 text-orange-500 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-gray-400">
-                  Mon-Sat: 6:00 AM - 10:00 PM<br />
+                  Mon-Sat: 6:00 AM - 10:00 PM
+                  <br />
                   Sunday: 7:00 AM - 9:00 PM
                 </div>
               </div>
@@ -134,9 +150,15 @@ export function Footer() {
               © 2024 SeaSide Live Bake Studio. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
-              <a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-orange-500 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-orange-500 transition-colors">Refund Policy</a>
+              <a href="#" className="hover:text-orange-500 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-orange-500 transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-orange-500 transition-colors">
+                Refund Policy
+              </a>
             </div>
           </div>
         </div>

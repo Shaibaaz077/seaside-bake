@@ -87,7 +87,6 @@ export function AboutSection() {
               size="lg" 
               className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-10 py-4 font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
-              <span className="mr-2">📍</span>
               Visit Our Live Baking Studio
             </Button>
           </div>

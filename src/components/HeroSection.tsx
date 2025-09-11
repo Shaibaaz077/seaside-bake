@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import heroBackgroundImage from "../assets/b3ad8e939dc2d455337cc8700b5c8148d81c78b2.png";
+import heroBackgroundImage from "../assets/heroimg.png";
 
 export function HeroSection() {
   const navigate = useNavigate();
