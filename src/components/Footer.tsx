@@ -9,7 +9,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { Button } from "./ui/button";
-import seasidelogo from "../assets/seaside.jpg";
+import footerimg from "../assets/footer-removebg-preview.png";
 
 export function Footer() {
   const quickLinks = [
@@ -44,8 +44,8 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="size-12 rounded-full flex items-center justify-center">
-                <img src={seasidelogo} alt="SeaSide Live Bake Studio" />
+              <div className="size-14 bg-white rounded-full flex items-center justify-center">
+                <img src={footerimg} alt="SeaSide Live Bake Studio" />
               </div>
               <div>
                 <h3 className="font-bold">SeaSide Live Bake Studio</h3>

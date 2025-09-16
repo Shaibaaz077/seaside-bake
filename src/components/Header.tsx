@@ -21,16 +21,20 @@ export function Header() {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1">
                 <Phone className="size-3" />
-                <span>+91 9994592607</span>
+                <span className="text-xs md:text-sm">+91 9994592607</span>
               </div>
               <div className="flex items-center gap-1">
                 <MapPin className="size-3" />
-                <span>Cuddalore, Tamil Nadu</span>
+                <span className="text-xs md:text-sm">
+                  Cuddalore, Tamil Nadu
+                </span>
               </div>
             </div>
             <div className="flex items-center gap-1">
               <Clock className="size-3" />
-              <span>Open: 6:00 AM - 10:00 PM</span>
+              <span className="text-xs md:text-sm">
+                Open: 6:00 AM - 10:00 PM
+              </span>
             </div>
           </div>
         </div>
@@ -40,7 +44,7 @@ export function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="size-12 bg-primary rounded-full flex items-center justify-center">
+            <div className="size-12 rounded-full flex items-center justify-center">
               <img src={seasidelogo} alt="SeaSide Live Bake Studio" />
             </div>
             <div>
@@ -68,10 +72,9 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center gap-4 md:pl-10">
-              <button className="hidden md:text-lg sm:inline-flex font-semibold text-primary hover:underline transition-colors mr-2">
-                Login
-              </button>
-              <Button className="hidden text-lg sm:inline-flex">Sign Up</Button>
+              <Button className="hidden text-md sm:inline-flex">
+                Order Now
+              </Button>
             </div>
             {/* Mobile menu */}
             <Sheet>
@@ -91,10 +94,8 @@ export function Header() {
                       {item.name}
                     </a>
                   ))}
-                  <button className="w-full text-md font-semibold text-primary border border-primary hover:bg-primary-foreground transition-colors py-1 rounded-md">
-                    Login
-                  </button>
-                  <Button className="w-full py-1">Sign Up</Button>
+
+                  <Button className="w-full py-1">Order Now</Button>
                 </div>
               </SheetContent>
             </Sheet>

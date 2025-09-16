@@ -1,125 +1,172 @@
 // pages/FullMenu.tsx
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { menuData } from "../menuData";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
-import { Star, ShoppingCart } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
+import { Star, ShoppingCart, Search } from "lucide-react";
+import { Input } from "./ui/input";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export default function FullMenu() {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Extract unique categories
   const categories = ["All", ...new Set(menuData.map((item) => item.category))];
 
-  // Filtered items
-  const filteredItems =
-    activeTab === "All"
-      ? menuData
-      : menuData.filter((item) => item.category === activeTab);
-
   return (
-    <div className="p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">Menu</h1>
-
+    <div className="p-4 sm:p-6">
       {/* Back Button */}
-      <div className="ml-6 mb-4">
+      <div className="ml-2 sm:ml-6 mb-4">
         <button
           onClick={() => navigate("/")}
-          className="text-xl font-bold text-gray-800 hover:underline hover:text-primary mb-2"
+          className="text-lg sm:text-xl font-bold text-gray-800 hover:underline hover:text-primary"
         >
           &larr; Back
         </button>
       </div>
 
+      {/* Search Bar */}
+      <div className="flex justify-between mb-6">
+        <h1 className="text-4xl font-bold text-center mb-6 ml-6">Menu</h1>
+
+        <div className="relative w-full max-w-md ml-8 mt-2">
+          <Input
+            type="text"
+            placeholder="Search for dishes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-10 pr-4 py-2 h-10 w-full md:w-full rounded-lg border focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+      </div>
+
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-3 mb-6">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveTab(cat)}
-            className={`px-4 py-2 rounded-full border transition ${
-              activeTab === cat
-                ? "bg-orange-500 text-white border-orange-500"
-                : "bg-white text-gray-700 border-gray-300 hover:bg-orange-100"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <Tabs defaultValue="All" className="w-full">
+        <TabsList
+          className="
+      flex w-auto max-w-full overflow-x-auto no-scrollbar
+      justify-start sm:justify-center 
+      gap-2 sm:gap-3 
+      mb-6 px-2
+    "
+        >
+          {categories.map((cat) => (
+            <TabsTrigger
+              key={cat}
+              value={cat}
+              className="
+          px-4 py-2 whitespace-nowrap rounded-full border
+          text-sm sm:text-base transition
+          data-[state=active]:bg-orange-500 
+          data-[state=active]:text-white 
+          data-[state=active]:border-orange-500
+        "
+            >
+              {cat}
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-      {/* Items Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredItems.map((item) => (
-          <Card
-            key={item.id}
-            className="group hover:shadow-lg transition-all duration-300 overflow-hidden"
-          >
-            <div className="relative">
-              <ImageWithFallback
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+        {categories.map((cat) => {
+          // Filter by category + search
+          const filteredItems = menuData.filter((item) => {
+            const matchesCategory =
+              cat === "All" ? true : item.category === cat;
+            const matchesSearch = item.name
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase());
+            return matchesCategory && matchesSearch;
+          });
 
-              {/* Badges */}
-              <div className="absolute top-2 left-2 flex gap-2">
-                {item.isNew && (
-                  <Badge className="bg-green-500 hover:bg-green-600">New</Badge>
-                )}
-                {item.isPopular && (
-                  <Badge className="bg-orange-500 hover:bg-orange-600">
-                    Popular
-                  </Badge>
-                )}
-              </div>
-              <div className="absolute top-2 right-2">
-                <Badge variant="secondary" className="bg-white/90">
-                  {item.category}
-                </Badge>
-              </div>
-            </div>
+          return (
+            <TabsContent key={cat} value={cat}>
+              {filteredItems.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {filteredItems.map((item) => (
+                    <Card
+                      key={item.id}
+                      className="group hover:shadow-lg transition-all duration-300 overflow-hidden"
+                    >
+                      <div className="relative">
+                        <ImageWithFallback
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
 
-            <CardContent className="p-4">
-              {/* Rating */}
-              {item.rating && (
-                <div className="flex items-center gap-1 mb-2">
-                  <Star className="size-4 fill-yellow-400 text-yellow-400" />
-                  <span className="text-sm font-medium">{item.rating}</span>
-                  <span className="text-sm text-muted-foreground">
-                    ({item.reviews ?? Math.floor(Math.random() * 50) + 10}{" "}
-                    reviews)
-                  </span>
+                        {/* Badges */}
+                        <div className="absolute top-2 left-2 flex gap-2">
+                          {item.isNew && (
+                            <Badge className="bg-green-500 hover:bg-green-600">
+                              New
+                            </Badge>
+                          )}
+                          {item.isPopular && (
+                            <Badge className="bg-orange-500 hover:bg-orange-600">
+                              Popular
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="absolute top-2 right-2">
+                          <Badge variant="secondary" className="bg-white/90">
+                            {item.category}
+                          </Badge>
+                        </div>
+                      </div>
+
+                      <CardContent className="p-4">
+                        {/* Rating */}
+                        {item.rating && (
+                          <div className="flex items-center gap-1 mb-2">
+                            <Star className="size-4 fill-yellow-400 text-yellow-400" />
+                            <span className="text-sm font-medium">
+                              {item.rating}
+                            </span>
+                            <span className="text-sm text-muted-foreground">
+                              (
+                              {item.reviews ??
+                                Math.floor(Math.random() * 50) + 10}{" "}
+                              reviews)
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Title & Description */}
+                        <h3 className="font-semibold mb-2">{item.name}</h3>
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                          {item.description}
+                        </p>
+
+                        {/* Price */}
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg font-bold text-primary">
+                            ₹{item.price}
+                          </span>
+                        </div>
+                      </CardContent>
+
+                      <CardFooter className="p-4 pt-0 flex gap-2">
+                        <Button className="flex-1">
+                          <ShoppingCart className="size-5 mr-2" />
+                          <span className="text-md">Add To Cart</span>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
                 </div>
+              ) : (
+                <p className="text-center text-gray-500 py-6">
+                  No results found.
+                </p>
               )}
-
-              {/* Title & Description */}
-              <h3 className="font-semibold mb-2">{item.name}</h3>
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                {item.description}
-              </p>
-
-              {/* Price */}
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold text-primary">
-                  ₹{item.price}
-                </span>
-              </div>
-            </CardContent>
-
-            <CardFooter className="p-4 pt-0 flex gap-2">
-              <Button className="flex-1">
-                <ShoppingCart className="size-5 mr-2" />
-                <span className="text-md">Add To Cart</span>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+            </TabsContent>
+          );
+        })}
+      </Tabs>
     </div>
   );
 }
