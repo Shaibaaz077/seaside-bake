@@ -16,7 +16,7 @@ export interface MenuItem {
 export const menuData: MenuItem[] = [
   // ================= BURGERS =================
   { id: 1, name: "Classic Veg Burger", category: "Burgers", price: 99, description: "Delicious veg burger with classic taste", rating: 4.5, reviews: 40, image: "/Images/Burgers/classic veg burger.jpg" },
-  { id: 2, name: "Veg Chipotle Burger", category: "Burgers", price: 109, description: "Spicy veg burger with chipotle sauce", rating: 4.3, reviews: 35, image: "/public/Images/Burgers/Chipotle-Black-Bean-Burgers.jpg" },
+  { id: 2, name: "Veg Chipotle Burger", category: "Burgers", price: 109, description: "Spicy veg burger with chipotle sauce", rating: 4.3, reviews: 35, image: "/Images/Burgers/Chipotle-Black-Bean-Burgers.jpg" },
   { id: 3, name: "The Spicy Veg Burger", category: "Burgers", price: 109, description: "Fiery spiced veg patty burger", rating: 4.4, reviews: 38, image: "/Images/Burgers/the spicy burger.jpg" },
   { id: 4, name: "Paneer Burger", category: "Burgers", price: 139, description: "Soft paneer patty with Indian spices", rating: 4.6, reviews: 44, image: "Images/Burgers/paneer burger.jpg" },
   { id: 5, name: "Mexican Wave Paneer Burger", category: "Burgers", price: 149, description: "Mexican-style paneer burger with salsa", rating: 4.5, reviews: 47, image: "/Images/Burgers/mexican burger.jpg" },
@@ -28,15 +28,15 @@ export const menuData: MenuItem[] = [
   { id: 10, name: "Schezwan Chicken Burger", category: "Burgers", price: 189, description: "Chicken patty with schezwan sauce", rating: 4.5, reviews: 42, image: "/Images/Burgers/Schezwan Chicken Burger.jpg" },
   { id: 11, name: "Chicken Premium Burger", category: "Burgers", price: 199, description: "Premium chicken burger with cheese", rating: 4.7, reviews: 55, image: "/Images/Burgers/premium chicken burger.jpg" },
   { id: 12, name: "Los Pos Hermanos Chicken Burger", category: "Burgers", price: 199, description: "Special chicken burger with spicy sauce", rating: 4.5, reviews: 48, image: "/Images/Burgers/Los Pos Hermanos Chicken Burger.jpg" },
-  { id: 13, name: "Schezwan Chicken Premium Burger", category: "Burgers", price: 199, description: "Premium schezwan chicken burger", rating: 4.6, reviews: 51, image: "/public/Images/Burgers/Schezwan Chicken Premium Burger.jpg" },
+  { id: 13, name: "Schezwan Chicken Premium Burger", category: "Burgers", price: 199, description: "Premium schezwan chicken burger", rating: 4.6, reviews: 51, image: "/Images/Burgers/Schezwan Chicken Premium Burger.jpg" },
   { id: 14, name: "Lamb Burger", category: "Burgers", price: 249, description: "Tender lamb patty with spices", rating: 4.7, reviews: 60, image: "/Images/Burgers/Lamb-Burger-Recipe.jpg" },
   { id: 15, name: "Chipotle Lamb Burger", category: "Burgers", price: 249, description: "Smoky chipotle lamb burger", rating: 4.6, reviews: 52, image: "/Images/Burgers/chipotle-lamb-burger.jpg" },
-  { id: 16, name: "Bannur Lamb Burger", category: "Burgers", price: 259, description: "Traditional Bannur style lamb burger", rating: 4.7, reviews: 54, image: "/public/Images/Burgers/bannur Lamb Burger.jpg" },
+  { id: 16, name: "Bannur Lamb Burger", category: "Burgers", price: 259, description: "Traditional Bannur style lamb burger", rating: 4.7, reviews: 54, image: "/Images/Burgers/bannur Lamb Burger.jpg" },
   { id: 17, name: "Juicy Lamb Burger", category: "Burgers", price: 299, description: "Succulent lamb patty burger", rating: 4.8, reviews: 64, image: "/Images/Burgers/juicy Lamb Burger.jpg" },
   { id: 18, name: "The Unforgiving Mutton Burger", category: "Burgers", price: 309, description: "Heavy-duty spicy mutton burger", rating: 4.6, reviews: 49, image: "/Images/Burgers/mutton burger.jpg" },
   { id: 19, name: "Schezwan Premium Lamb Burger", category: "Burgers", price: 309, description: "Premium lamb burger with schezwan sauce", rating: 4.7, reviews: 53, image: "/Images/Burgers/Schezwan Premium Lamb Burger.jpg" },
 
-  { id: 20, name: "Maharaja Veg Burger", category: "Special Burgers", price: 199, description: "Big and royal veg burger loaded with flavors", rating: 4.7, reviews: 60, image: "/public/Images/Burgers/Veg-Maharaja-Burger.jpg" },
+  { id: 20, name: "Maharaja Veg Burger", category: "Special Burgers", price: 199, description: "Big and royal veg burger loaded with flavors", rating: 4.7, reviews: 60, image: "/Images/Burgers/Veg-Maharaja-Burger.jpg" },
   { id: 21, name: "Maharaja Chicken Burger", category: "Special Burgers", price: 249, description: "Royal chicken burger with rich taste", rating: 4.8, reviews: 65, image: "/Images/Burgers/chicken maharaja burger.jpg" },
   { id: 22, name: "Maharaja Mutton Burger", category: "Special Burgers", price: 309, description: "Mutton burger made royal style", rating: 4.9, reviews: 70, image: "/Images/Burgers/maharaja mutton burger.jpg" },
 
@@ -250,7 +250,7 @@ export const menuData: MenuItem[] = [
   { id: 166, name: "Kitkat & Ferrero Cake (1 kg)", category: "Cakes", price: 1199, description: "Kitkat and Ferrero fusion cake", rating: 5.0, reviews: 80, image: "/Images/Cakes/Kitkat & Ferrero Cake (1 kg).jpg" },
 
   { id: 167, name: "Dark Chocolate Pinata Heart Cake (500 g)", category: "Cakes", price: 1149, description: "Breakable pinata heart cake with dark chocolate", rating: 4.9, reviews: 64, image: "/Images/Cakes/Dark Chocolate Pinata Heart Cake (500 g).jpg" },
-  { id: 168, name: "Dark Chocolate Pinata Heart Cake (1 kg)", category: "Cakes", price: 1299, description: "Breakable pinata heart cake with dark chocolate", rating: 5.0, reviews: 85, image: "/public/Images/Cakes/Dark Chocolate Pinata Heart Cake (1 kg).png" },
+  { id: 168, name: "Dark Chocolate Pinata Heart Cake (1 kg)", category: "Cakes", price: 1299, description: "Breakable pinata heart cake with dark chocolate", rating: 5.0, reviews: 85, image: "/Images/Cakes/Dark Chocolate Pinata Heart Cake (1 kg).png" },
 
   { id: 169, name: "Pink Pinata Heart Cake (500 g)", category: "Cakes", price: 1199, description: "Pink pinata heart cake with hidden surprises", rating: 4.9, reviews: 66, image: "/Images/Cakes/Pink Pinata Heart Cake (500 g).jpg" },
   { id: 170, name: "Pink Pinata Heart Cake (1 kg)", category: "Cakes", price: 1349, description: "Pink pinata heart cake with hidden surprises", rating: 5.0, reviews: 88, image: "/Images/Cakes/Pink Pinata Heart Cake (1 kg).jpg" },
@@ -263,7 +263,7 @@ export const menuData: MenuItem[] = [
 { id: 175, name: "Couple Cake (1 kg)", category: "Occasion Cakes", price: 949, description: "Romantic couple cake for celebrations", rating: 4.8, reviews: 55, image: "/Images/Occasion Cakes/couple cake (1 kg).jpg" },
 { id: 176, name: "Propose Cake (1 kg)", category: "Occasion Cakes", price: 949, description: "Romantic cake for proposals", rating: 4.9, reviews: 58, image: "/Images/Occasion Cakes/Propose Cake (1 kg).webp" },
 { id: 177, name: "Red Velvet Heart Cake (1 kg)", category: "Occasion Cakes", price: 969, description: "Heart-shaped red velvet cake", rating: 4.9, reviews: 63, image: "/Images/Occasion Cakes/Red Velvet Heart Cake (1 kg).jpg" },
-{ id: 178, name: "Chocolate Truffle Heart Cake (1 kg)", category: "Occasion Cakes", price: 999, description: "Heart-shaped chocolate truffle cake", rating: 5.0, reviews: 70, image: "/public/Images/Occasion Cakes/Chocolate Truffle Heart Cake (1 kg).jpeg" },
+{ id: 178, name: "Chocolate Truffle Heart Cake (1 kg)", category: "Occasion Cakes", price: 999, description: "Heart-shaped chocolate truffle cake", rating: 5.0, reviews: 70, image: "/Images/Occasion Cakes/Chocolate Truffle Heart Cake (1 kg).jpeg" },
 
   // ================= PASTRIES =================
 
@@ -478,7 +478,7 @@ export const menuData: MenuItem[] = [
   description: "Banana and toffee combination in a creamy jar dessert", 
   rating: 4.7, 
   reviews: 46, 
-  image: "/public/Images/Jar Cakes/Banoffee Jar Cake.jpg" 
+  image: "/Images/Jar Cakes/Banoffee Jar Cake.jpg" 
 },
 { 
   id: 200, 
@@ -488,7 +488,7 @@ export const menuData: MenuItem[] = [
   description: "Coffee-flavored Italian tiramisu served jar style", 
   rating: 4.8, 
   reviews: 57, 
-  image: "/public/Images/Jar Cakes/Tiramisu Jar Cake.jpg" 
+  image: "/Images/Jar Cakes/Tiramisu Jar Cake.jpg" 
 },
 { 
   id: 201, 
@@ -561,7 +561,7 @@ export const menuData: MenuItem[] = [
   description: "Chocolate cupcake with Oreo cream and cookie crunch", 
   rating: 4.7, 
   reviews: 50, 
-  image: "/public/Images/Cup Cakes/Oreo Cupcake.jpg" 
+  image: "/Images/Cup Cakes/Oreo Cupcake.jpg" 
 },
 { 
   id: 208, 
@@ -644,7 +644,7 @@ export const menuData: MenuItem[] = [
 { id: 230, name: "Oreo Kitkat Shake", category: "Shakes", price: 269, description: "Thickshake with Oreo chunks and Kitkat pieces", rating: 4.8, reviews: 52, image: "/Images/Shakes/Oreo Kitkat Shake.jpg" },
 { id: 231, name: "Oreo Brownie Thickshake", category: "Shakes", price: 219, description: "Chocolate brownie thickshake blended with Oreos", rating: 4.7, reviews: 44, image: "/Images/Shakes/Oreo Brownie Thickshake.jpg" },
 { id: 232, name: "Brownie Thickshake", category: "Shakes", price: 219, description: "Thick chocolate shake with brownie bits", rating: 4.6, reviews: 41, image: "/Images/Shakes/Brownie Thickshake.jpg" },
-{ id: 233, name: "Oreo Thickshake", category: "Shakes", price: 209, description: "Classic Oreo blended thickshake", rating: 4.6, reviews: 39, image: "/public/Images/Shakes/Oreo Thickshake.jpg" },
+{ id: 233, name: "Oreo Thickshake", category: "Shakes", price: 209, description: "Classic Oreo blended thickshake", rating: 4.6, reviews: 39, image: "/Images/Shakes/Oreo Thickshake.jpg" },
 { id: 234, name: "Kitkat Thickshake", category: "Shakes", price: 219, description: "Creamy Kitkat blended thickshake", rating: 4.7, reviews: 43, image: "/Images/Shakes/Kitkat Thickshake.jpg" },
 { id: 235, name: "Chocolate Milkshake", category: "Shakes", price: 199, description: "Classic chocolate flavored milkshake", rating: 4.5, reviews: 37, image: "/Images/Shakes/Chocolate Milkshake.jpg" },
 { id: 236, name: "Butterscotch Milkshake", category: "Shakes", price: 199, description: "Creamy butterscotch flavored milkshake", rating: 4.5, reviews: 34, image: "/Images/Shakes/Butterscotch Milkshake.jpg" },
