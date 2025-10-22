@@ -10,7 +10,7 @@ import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import FullMenu from "./components/Fullmenu";
 import "./index.css";
-import { Home } from "lucide-react";
+import { CartProvider } from "./Context/CartContext";
 
 function HomePage() {
   return (
@@ -28,15 +28,17 @@ function HomePage() {
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/full-menu" element={<FullMenu />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/full-menu" element={<FullMenu />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </CartProvider>
   );
 }

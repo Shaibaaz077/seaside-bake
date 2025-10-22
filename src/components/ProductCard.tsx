@@ -28,15 +28,6 @@ export function ProductCard({
   isNew,
   isPopular,
 }: ProductCardProps) {
-  const handleWhatsAppOrder = () => {
-    const message = `Hi! I'd like to order ${name} for ₹${price}. Please let me know the availability.`;
-    const phoneNumber = "919876543210"; // Replace with actual number
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-    window.open(whatsappUrl, "_blank");
-  };
-
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
       <div className="relative">
@@ -87,7 +78,7 @@ export function ProductCard({
       </CardContent>
 
       <CardFooter className="p-4 pt-0 flex gap-2">
-        <Button className="flex-1" onClick={handleWhatsAppOrder}>
+        <Button className="flex-1">
           <ShoppingCart className="size-5 mr-2" />
           <span className="text-md">Add To Cart</span>
         </Button>

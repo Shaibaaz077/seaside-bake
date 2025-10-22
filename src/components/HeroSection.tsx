@@ -64,16 +64,9 @@ export function HeroSection() {
             <Button
               onClick={() => navigate("/full-menu")}
               size="lg"
-              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-10 py-4 text-lg font-semibold shadow-2xl hover:shadow-amber-500/25 transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-semibold shadow-2xl hover:shadow-amber-500/25 transform hover:scale-105 transition-all duration-300"
             >
               Explore Our Menu
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 px-10 py-4 text-lg font-semibold backdrop-blur-sm bg-white/10 transform hover:scale-105 transition-all duration-300"
-            >
-              Order via WhatsApp
             </Button>
           </div>
 
