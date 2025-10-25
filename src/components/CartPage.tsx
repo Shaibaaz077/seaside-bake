@@ -1,33 +1,16 @@
 import { Trash2, X } from "lucide-react";
 import { Button } from "./ui/button";
-
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image?: string;
-}
+import { useCart } from "../Context/CartContext";
 
 interface CartPageProps {
-  /** Controls visibility (passed from Header) */
   open: boolean;
-  /** Closes the cart (passed from Header) */
   onClose: () => void;
-  cartItems: CartItem[];
-  updateQuantity: (id: number, qty: number) => void;
-  removeItem: (id: number) => void;
   onCheckout?: () => void;
 }
 
-const CartPage: React.FC<CartPageProps> = ({
-  open,
-  onClose,
-  cartItems,
-  updateQuantity,
-  removeItem,
-  onCheckout,
-}) => {
+const CartPage: React.FC<CartPageProps> = ({ open, onClose, onCheckout }) => {
+  const { cartItems, updateQuantity, removeItem } = useCart();
+
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -51,8 +34,18 @@ const CartPage: React.FC<CartPageProps> = ({
       >
         {/* Header */}
         <div className="flex justify-between items-center px-8 py-5 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-800">Your Cart </h2>
-          <button onClick={onClose}>
+          <h2 className="text-2xl font-bold text-gray-800">
+            Your Cart 🛒
+            {cartItems.length > 0 && (
+              <span className="ml-2 text-sm font-normal text-gray-500">
+                ({cartItems.length} {cartItems.length === 1 ? "item" : "items"})
+              </span>
+            )}
+          </h2>
+          <button
+            onClick={onClose}
+            className="hover:bg-gray-100 rounded-full p-2 transition-colors"
+          >
             <X className="w-6 h-6 text-gray-600 hover:text-orange-500" />
           </button>
         </div>
@@ -61,12 +54,13 @@ const CartPage: React.FC<CartPageProps> = ({
         <div className="flex-1 overflow-y-auto px-8 py-6 bg-gray-50">
           {cartItems.length === 0 ? (
             <div className="text-center py-20 text-gray-500">
-              <p className="text-lg mb-4">Your cart is empty 😔</p>
+              <div className="text-6xl mb-4">🛒</div>
+              <p className="text-lg mb-2 font-semibold">Your cart is empty</p>
+              <p className="text-sm mb-6">
+                Add some delicious items to get started!
+              </p>
               <Button
-                onClick={() => {
-                  onClose();
-                  window.location.href = "/#menu";
-                }}
+                onClick={onClose}
                 className="bg-orange-500 hover:bg-orange-600"
               >
                 Browse Menu
@@ -76,18 +70,20 @@ const CartPage: React.FC<CartPageProps> = ({
             cartItems.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between bg-white border rounded-lg p-4 mb-4 hover:shadow-md transition"
+                className="flex items-center justify-between bg-white border rounded-lg p-4 mb-4 hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 flex-1">
                   {item.image && (
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-30 h-20 rounded-md object-cover"
+                      className="w-20 h-20 rounded-md object-cover flex-shrink-0"
                     />
                   )}
-                  <div>
-                    <p className="font-semibold text-gray-800">{item.name}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-gray-800 truncate">
+                      {item.name}
+                    </p>
                     <p className="text-sm text-gray-500">
                       ₹{item.price.toFixed(2)}
                     </p>
@@ -97,16 +93,18 @@ const CartPage: React.FC<CartPageProps> = ({
                           updateQuantity(item.id, item.quantity - 1)
                         }
                         disabled={item.quantity <= 1}
-                        className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50"
+                        className="px-3 py-1 border rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                       >
                         -
                       </button>
-                      <span className="font-medium">{item.quantity}</span>
+                      <span className="font-medium min-w-[2rem] text-center">
+                        {item.quantity}
+                      </span>
                       <button
                         onClick={() =>
                           updateQuantity(item.id, item.quantity + 1)
                         }
-                        className="px-3 py-1 border rounded hover:bg-gray-100"
+                        className="px-3 py-1 border rounded hover:bg-gray-100 transition-colors"
                       >
                         +
                       </button>
@@ -114,13 +112,13 @@ const CartPage: React.FC<CartPageProps> = ({
                   </div>
                 </div>
 
-                <div className="text-right">
-                  <p className="font-semibold text-gray-700">
+                <div className="text-right ml-4 flex-shrink-0">
+                  <p className="font-semibold text-gray-700 mb-2">
                     ₹{(item.price * item.quantity).toFixed(2)}
                   </p>
                   <button
                     onClick={() => removeItem(item.id)}
-                    className="text-red-500 text-sm flex items-center gap-1 mt-4"
+                    className="text-red-500 text-sm flex items-center gap-1 hover:text-red-600 transition-colors"
                   >
                     <Trash2 className="w-4 h-4" /> Remove
                   </button>
@@ -132,23 +130,23 @@ const CartPage: React.FC<CartPageProps> = ({
 
         {/* Footer Summary */}
         {cartItems.length > 0 && (
-          <div className="border-t border-gray-200 px-8 py-6 bg-white mb-6">
+          <div className="border-t border-gray-200 px-8 py-6 bg-white shadow-lg mb-8">
             <div className="flex justify-between font-semibold text-gray-700 mb-3">
               <span>Subtotal</span>
               <span>₹{total.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-gray-700 mb-3">
               <span>Delivery</span>
-              <span>₹30</span>
+              <span>₹30.00</span>
             </div>
-            <div className="flex justify-between font-bold text-gray-900 border-t pt-3">
+            <div className="flex justify-between font-bold text-gray-900 text-lg border-t pt-3 mt-2">
               <span>Total</span>
               <span>₹{(total + 30).toFixed(2)}</span>
             </div>
             <div className="flex justify-end">
               <Button
                 onClick={onCheckout}
-                className="mt-6  bg-orange-500 hover:bg-orange-600 text-white py-6 rounded-lg text-lg font-semibold"
+                className="mt-6 bg-orange-500 hover:bg-orange-600 text-white py-6 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all"
               >
                 Order Now
               </Button>
