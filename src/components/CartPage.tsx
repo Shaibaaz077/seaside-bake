@@ -130,7 +130,7 @@ const CartPage: React.FC<CartPageProps> = ({ open, onClose, onCheckout }) => {
 
         {/* Footer Summary */}
         {cartItems.length > 0 && (
-          <div className="border-t border-gray-200 px-8 py-6 bg-white shadow-lg mb-8">
+          <div className="border-t border-gray-200 px-8 py-6 bg-white shadow-lg">
             <div className="flex justify-between font-semibold text-gray-700 mb-3">
               <span>Subtotal</span>
               <span>₹{total.toFixed(2)}</span>
