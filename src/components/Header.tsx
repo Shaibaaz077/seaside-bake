@@ -132,7 +132,6 @@ export function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-6">
-            {/* 🛒 Cart Icon */}
             {user && (
               <button
                 onClick={() => setCartOpen(true)}

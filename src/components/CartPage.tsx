@@ -35,7 +35,7 @@ const CartPage: React.FC<CartPageProps> = ({ open, onClose, onCheckout }) => {
         {/* Header */}
         <div className="flex justify-between items-center px-8 py-5 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-800">
-            Your Cart 🛒
+            Your Cart
             {cartItems.length > 0 && (
               <span className="ml-2 text-sm font-normal text-gray-500">
                 ({cartItems.length} {cartItems.length === 1 ? "item" : "items"})
@@ -80,8 +80,8 @@ const CartPage: React.FC<CartPageProps> = ({ open, onClose, onCheckout }) => {
                       className="w-20 h-20 rounded-md object-cover flex-shrink-0"
                     />
                   )}
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-gray-800 truncate">
+                  <div className="flex-1 w-24">
+                    <p className="font-semibold text-sm md:text-md text-gray-800 truncate">
                       {item.name}
                     </p>
                     <p className="text-sm text-gray-500">
